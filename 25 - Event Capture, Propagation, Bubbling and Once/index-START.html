@@ -43,7 +43,22 @@
 
 <button></button>
 <script>
+  const divs = document.querySelectorAll("div");
 
+  divs.forEach(div => div.addEventListener("click", logText, {capture: false, once: true} 
+  ));
+
+  function logText(event){
+    
+    console.log(this.classList.value)
+    //event.stopPropagation(); // to stop the event from firing on the bubble up or capture down if using capture: true
+  }
+
+  const btn = document.querySelector("button");
+
+  btn.addEventListener("click", () => {
+    console.log("test");
+  }, {once: false}) //once will unbind the event listener so it doesnt fire more than once
 </script>
 </body>
 </html>
